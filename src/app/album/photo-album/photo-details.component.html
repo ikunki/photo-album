@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Photo details</h2>
+<mat-dialog-content>
+    <p>Title: {{this.photo.title}} </p>
+    <img src="{{this.photo.url}}" >
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,15 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    </a>
+    <a mat-list-item routerLink="/album/photos" (click)="onSidenavClose()">
+        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Photos</span>
+     </a>
+    <mat-list-item [matMenuTriggerFor]="menu">
+        <mat-icon>unfold_more</mat-icon>
+        <a matline>Album</a>
+    </mat-list-item>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onSidenavClose()">Photos</button>
+    </mat-menu>
+</mat-nav-list>

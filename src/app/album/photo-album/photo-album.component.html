@@ -1,0 +1,27 @@
+<div fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource" matSort matSortStart="desc" (matSortChange)="customSort($event)">
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+    <td mat-cell *matCellDef="let element">
+        {{element.title}}
+  </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="thumbnailUrl">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Thumbnail </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary" (click)="openDialog(element.title)">
+        <img src="{{element.thumbnailUrl}}" >
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20]">
+</mat-paginator>
